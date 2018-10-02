@@ -139,7 +139,7 @@ push_with_result_check() {
   fi
 
   # failed for reason other than non-fast-forward / fetch-first
-  if ! grep -q '\[rejected\]\|\[remote rejected\].*cannot lock ref' $TMPDIR/push-failure; then
+  if ! grep -q '\[rejected\]\|\.*cannot lock ref' $TMPDIR/push-failure; then
     echo "failed with non-rebase error"
     eval "$1=1"
     return
